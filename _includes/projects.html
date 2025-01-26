@@ -1,6 +1,51 @@
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  .user-details, .user-projects {
+    padding: 20px;
+    color: white;
+  }
+
+  .user-projects {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .images-right img, .images-left img {
+    width: 200px;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .contents, .contents-right {
+    max-width: 600px;
+  }
+
+  .project-link {
+    color: #1e90ff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .project-link:hover {
+    text-decoration: underline;
+  }
+
+  /* Background gradient from dark grey to dark navy blue */
+  body {
+    background: linear-gradient(to bottom, #1c1c3c, #043564);
+  }
+</style>
+
 <div class="user-details">
   <h1> Featured Projects </h1>
 </div>
+
 <div class="user-projects">
   <div class="images-right">
     <img alt="mountains" src="{{ "/assets/img/mountains.jpg" | prepend: site.baseurl }}" />
@@ -14,9 +59,10 @@
     <a class="project-link" href="#">Check it out</a>
   </div>
 </div>
+
 <div class="user-projects">
   <div class="images-left">
-    <img alt="mountains" src="{{ "/assets/img/skate.jpg" | prepend: site.baseurl }}" />
+    <img alt="skate" src="{{ "/assets/img/skate.jpg" | prepend: site.baseurl }}" />
   </div>
   <div class="contents-right">
     <h3> Project Title </h3>
@@ -27,3 +73,5 @@
     <a class="project-link" href="#">Check it out</a>
   </div>
 </div>
+
+<div id="nyan-js"></div>
