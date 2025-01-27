@@ -5,14 +5,14 @@ description: Forsan et haec olim meminisse juvabit
 url: "asanayei.github.io" # the base hostname & protocol for your site e.g. http://willianjusten.com.br
 logo: '/assets/img/logo.svg'
 # User settings
-username: armon 
+username: Armon Sana
 user_description: Did someone say tacos?
-user_title: bloop
-email: anon@anon.com
+user_title: Research Engineer
+email: sana.armon@gmail.com
 twitter_username: lorem_ipsum
-github_username:  lorem_ipsum
+github_username:  asanayei
 gplus_username:  lorem_ipsum
-
+linkedin_username: armonsana
 # Google-analytics
 google-analytics:
   id: ""

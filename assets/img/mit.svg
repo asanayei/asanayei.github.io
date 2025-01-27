@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" height="166" width="321">
+  <style>
+    .mit-line {
+      fill: none;
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      animation: drawLine 1.5s ease forwards;
+      animation-delay: 2s;
+    }
+    
+    .delay-1 { animation-delay: 2.2s; }
+    .delay-2 { animation-delay: 2.4s; }
+    .delay-3 { animation-delay: 2.6s; }
+    .delay-4 { animation-delay: 2.8s; }
+    .delay-5 { animation-delay: 3.0s; }
+    .delay-6 { animation-delay: 3.2s; }
+    .delay-7 { animation-delay: 3.4s; }
+    @keyframes drawLine {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+  </style>
+  
+  <g>
+    <!-- M -->
+    <path class="mit-line" stroke="#A31F34" stroke-width="35" d="m17.5,0v166"/>
+    <path class="mit-line delay-1" stroke="#A31F34" stroke-width="35" d="m74.5,0v113"/>
+    <path class="mit-line delay-2" stroke="#A31F34" stroke-width="35" d="m131.5,0v166"/>
+    
+    <!-- I -->
+    <path class="mit-line delay-3" stroke="#A31F34" stroke-width="35" d="m188.5,0v33"/>
+    <path class="mit-line delay-4" stroke="#8A8B8C" stroke-width="35" d="m188.5,53v113"/>
+    
+    <!-- T -->
+    <path class="mit-line delay-5" stroke="#A31F34" stroke-width="35" d="m246.5,20v150"/>
+    <path class="mit-line delay-6" stroke="#A31F34" stroke-width="33" d="m229,16.5h93"/>
+  </g>
+</svg>

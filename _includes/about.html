@@ -1,30 +1,322 @@
- <div class="user-details">
-  <h1> My Expertise </h1>
-  <p> {{site.user_description}} </p>
-</div>
-  <div class="user">
-    <div class="tech">
-      <h2>Design</h2>
-      <i class="devicon-html5-plain-wordmark"></i>
-      <i class="devicon-bootstrap-plain-wordmark colored"></i>
-      <i class="devicon-sass-original colored"></i>
-      <p>Mumblecore hexagon kombucha, pitchfork four loko raclette intelligentsia master cleanse.
-        Vinyl XOXO lumbersexual</p>
+<!-- Terminal container -->
+<div id="terminal-placeholder" style="height: 500px;"></div>
+
+<!-- Template for the actual content -->
+<template id="terminal-template">
+  <div class="term-container">
+    <!-- Header (fake terminal title bar) -->
+    <div class="term-header">
+      <div class="term-dot term-dot-red"></div>
+      <div class="term-dot term-dot-yellow"></div>
+      <div class="term-dot term-dot-green"></div>
+      <div class="term-title">visitor@portfolio:~/expertise$</div>
     </div>
-    <div class="tech">
-      <h2>Code</h2>
-      <i class="devicon-javascript-plain colored"></i>
-      <i class="devicon-react-original-wordmark colored"></i>
-      <i class="devicon-nodejs-plain-wordmark"></i>
-      <p>Mumblecore hexagon kombucha, pitchfork four loko raclette intelligentsia master cleanse.
-        Vinyl XOXO lumbersexual</p>
+
+    <!-- Body -->
+    <div class="term-body" id="terminalBody">
+      <!-- Initial tech logo cloud -->
+      <div class="term-tech-cloud">
+        <a href="https://pytorch-geometric.readthedocs.io/" target="_blank" class="term-tech-link">
+          <img src="/assets/img/pygeo_2.svg" alt="PyTorch Geometric" class="term-tech-logo" />
+        </a>
+        <a href="https://spark.apache.org/" target="_blank" class="term-tech-link">
+          <img src="/assets/img/spark.svg" alt="Apache Spark" class="term-tech-logo" />
+        </a>
+        <a href="https://aws.amazon.com/" target="_blank" class="term-tech-link">
+          <img src="/assets/img/aws.svg" alt="AWS" class="term-tech-logo" />
+        </a>
+        <a href="https://www.nvidia.com/en-us/" target="_blank" class="term-tech-link">
+          <img src="/assets/img/nvidia.svg" alt="NVIDIA" class="term-tech-logo" />
+        </a>
+      </div>
+      <!-- Typed content will appear here -->
     </div>
-    <div class="tech">
-      <h2>Tools</h2>
-      <i class="devicon-git-plain"></i>
-      <i class="devicon-gulp-plain colored"></i>
-      <i class="devicon-atom-original-wordmark"></i>
-      <p>Mumblecore hexagon kombucha, pitchfork four loko raclette intelligentsia master cleanse.
-        Vinyl XOXO lumbersexual</p>
-    </div>
-</div>
+  </div>
+</template>
+
+<style>
+/* Use a monospaced font for the terminal vibe */
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+
+/* Terminal container */
+.term-container {
+  width: 95%;
+  max-width: 800px;
+  background: #1c1c1c;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  margin: 2rem auto;
+  overflow: hidden;
+}
+
+/* Fake terminal header (dots + title) */
+.term-header {
+  background: #2d2d2d;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.term-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.term-dot-red { background: #ff5f57; }
+.term-dot-yellow { background: #ffbd2e; }
+.term-dot-green { background: #28ca42; }
+
+.term-title {
+  margin-left: auto;
+  font-weight: bold;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  font-family: 'Source Code Pro', monospace;
+  color: #f5f5f5;
+}
+
+/* Terminal Body */
+.term-body {
+  padding: 1.5rem;
+  line-height: 1.7;
+  font-family: 'Source Code Pro', monospace;
+  color: #f5f5f5;
+}
+
+/* Tech logo cloud */
+.term-tech-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+}
+
+.term-tech-link {
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.term-tech-logo {
+  width: 128px;
+  height: 128px;
+  transition: transform 0.3s ease;
+  filter: invert(1);
+}
+
+.term-tech-link:hover {
+  transform: scale(1.2);
+}
+
+/* Each typed line */
+.term-typed-line {
+  white-space: pre-wrap;
+  font-size: 1rem;
+  margin-bottom: 1.2rem;
+  min-height: 1.2em;
+}
+
+/* Headings: bigger & centered */
+.term-heading {
+  font-size: 1.6rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #00c853;
+}
+
+/* Experience logos grid */
+.term-exp-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(120px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+  margin: 2rem 0;
+}
+
+.term-exp-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.term-exp-logo {
+  width: auto;
+  height: 80px;
+  transition: transform 0.6s ease;
+}
+
+.term-exp-link:hover {
+  transform: scale(1.2);
+}
+
+/* Blinking cursor */
+.term-cursor {
+  display: inline-block;
+  width: 8px;
+  background: #f5f5f5;
+  margin-left: 3px;
+  animation: term-blink 0.8s infinite;
+}
+
+@keyframes term-blink {
+  0%, 50% { opacity: 1; }
+  50.1%, 100% { opacity: 0; }
+}
+
+/* Terminal-style LinkedIn button */
+.term-linkedin-btn {
+  display: inline-block;
+  background: #2d2d2d;
+  color: #00ff00;
+  font-family: 'Source Code Pro', monospace;
+  padding: 0.8rem 1.5rem;
+  border: 1px solid #00ff00;
+  text-decoration: none;
+  margin-top: 2rem;
+  transition: all 0.3s ease;
+}
+
+.term-linkedin-btn:hover {
+  background: #00ff00;
+  color: #ffffff;
+}
+
+.term-linkedin-btn::before {
+  content: '$ ';
+  color: #00ff00;
+}
+
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const placeholder = document.getElementById('terminal-placeholder');
+  const template = document.getElementById('terminal-template');
+  let hasStartedTyping = false;
+
+  // Content to type
+  const lines = [
+    { text: 'My Expertise', isHeading: true },
+    { text: 'My expertise is in computer vision, graph databases and neural networks, generative AI, and non-linear numerical simulations. I have training in both classical approaches and modern ML based approaches.' },
+    { text: 'Technical Skills', isHeading: true },
+    { text: '• Graph Neural Networks: Advanced architectures and theoretical foundations\n• Robotics & Computer Vision: Object detection, tracking, and motion control\n• Massive Databases & Data Mining: Large-scale data processing and analytics\n• GPU Optimization: CUDA programming and parallel computing \n• Computational Statistics: Causal inference, online hypothesis testing, POMDPs' },
+    { text: 'Experience', isHeading: true },
+    {
+      text: 'Experience at NASA, Los Alamos National Labs, and MSKCC has honed my skills in research and development.',
+      expLinks: [
+        { url: 'https://www.nasa.gov/', img: '/assets/img/nasa.svg' },
+        { url: 'https://www.lanl.gov/', img: '/assets/img/lanl.svg' },
+        { url: 'https://www.mskcc.org/', img: '/assets/img/mskcc.svg' },
+        { url: 'https://www.army.mil/', img: '/assets/img/army.svg' },
+        { url: 'https://www.finch.com/', img: '/assets/img/finch.jpeg' },
+        { url: 'https://stanfordhealthcare.org/', img: '/assets/img/stanford_hc.svg' },
+      ]
+    }
+  ];
+
+  function typeText(containerEl, text, callback) {
+    let idx = 0;
+    let typedSoFar = '';
+    
+    const typedSpan = document.createElement('span');
+    const cursorSpan = document.createElement('span');
+    cursorSpan.classList.add('term-cursor');
+    
+    containerEl.appendChild(typedSpan);
+    containerEl.appendChild(cursorSpan);
+
+    (function typeChar() {
+      if (idx < text.length) {
+        typedSoFar += text.charAt(idx);
+        typedSpan.textContent = typedSoFar;
+        idx++;
+        setTimeout(typeChar, 1);
+      } else {
+        containerEl.removeChild(cursorSpan);
+        if (callback) callback();
+      }
+    })();
+  }
+
+  function processLines(lines, i = 0) {
+    if (i >= lines.length) {
+      // Add LinkedIn button after all content
+      const terminalBody = document.getElementById('terminalBody');
+      const button = document.createElement('a');
+      button.href = "https://www.linkedin.com/in/armonsana/"; // Replace with actual LinkedIn URL
+      button.className = "term-linkedin-btn";
+      button.textContent = "connect --platform linkedin";
+      terminalBody.appendChild(button);
+      return;
+    }
+
+    const terminalBody = document.getElementById('terminalBody');
+    const lineEl = document.createElement('div');
+    lineEl.classList.add('term-typed-line');
+
+    if (lines[i].isHeading) {
+      lineEl.classList.add('term-heading');
+    }
+
+    terminalBody.appendChild(lineEl);
+
+    typeText(lineEl, lines[i].text, () => {
+      if (lines[i].expLinks) {
+        const expGrid = document.createElement('div');
+        expGrid.classList.add('term-exp-grid');
+
+        lines[i].expLinks.forEach(({ url, img }) => {
+          const link = document.createElement('a');
+          link.href = url;
+          link.target = "_blank";
+          link.classList.add('term-exp-link');
+
+          const imgEl = document.createElement('img');
+          imgEl.src = img;
+          imgEl.alt = 'Experience Logo';
+          imgEl.classList.add('term-exp-logo');
+
+          link.appendChild(imgEl);
+          expGrid.appendChild(link);
+        });
+
+        terminalBody.appendChild(expGrid);
+      }
+
+      setTimeout(() => {
+        processLines(lines, i + 1);
+      }, 500);
+    });
+  }
+
+  // Create intersection observer
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !hasStartedTyping) {
+        // Replace placeholder with actual content
+        const content = template.content.cloneNode(true);
+        placeholder.replaceWith(content);
+        
+        // Start the typing animation
+        hasStartedTyping = true;
+        processLines(lines);
+        
+        // Stop observing after loading
+        observer.disconnect();
+      }
+    });
+  }, {
+    threshold: 0.3
+  });
+
+  // Start observing the placeholder
+  observer.observe(placeholder);
+});
+</script>
