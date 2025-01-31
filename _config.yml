@@ -1,11 +1,11 @@
 # Site settings
-title: Armaun Sana
+title: Herman Sana
 description: Forsan et haec olim meminisse juvabit
 # baseurl: "/particle" # the subpath of your site, e.g. /blog
 url: "asanayei.github.io" # the base hostname & protocol for your site e.g. http://willianjusten.com.br
 logo: '/assets/img/logo.svg'
 # User settings
-username: Armaun Sana
+username: Herman Sana
 user_description: Did someone say tacos?
 user_title: Research Engineer
 email: sana.armon@gmail.com
