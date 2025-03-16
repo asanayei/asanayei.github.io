@@ -40,3 +40,31 @@
     margin: 20px;
   }
   
+  .header-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Adjust spacing between icons */
+    margin-top: 10px;
+  }
+  
+  .header-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px; /* Adjust to fit your design */
+    height: 50px;
+    border-radius: 50%;
+    background-color: white; /* Adjust background color */
+    text-decoration: none;
+    position: relative;
+  }
+  
+  .header-icons .icon {
+    font-size: 24px; /* Adjust icon size */
+    color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-80%, -80%);
+  }
+  

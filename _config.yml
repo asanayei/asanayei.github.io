@@ -1,14 +1,14 @@
 # Site settings
-title: Luca Sana
+title: Luca Sanayei
 description: Forsan et haec olim meminisse juvabit
 # baseurl: "/particle" # the subpath of your site, e.g. /blog
 url: "asanayei.github.io" # the base hostname & protocol for your site e.g. http://willianjusten.com.br
 logo: '/assets/img/logo.svg'
 # User settings
-username: Luca Sana
+username: Luca Sanayei
 user_description: Did someone say tacos?
 user_title: Research Engineer
-email: sana.armon@gmail.com
+email: arsan@alumni.stanford.edu
 twitter_username: lorem_ipsum
 github_username:  asanayei
 gplus_username:  lorem_ipsum

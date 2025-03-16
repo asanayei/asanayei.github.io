@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications</title>
+    <style>
+        body {
+            background-color: #0B3D91;
+            font-family: Arial, sans-serif;
+            color: #ffffff;
+            padding: 50px;
+            line-height: 1.4;
+            text-align: center;
+        }
+
+        h1 {
+            color: #ffffff;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+
+        .publication {
+            background-color: #c4c4c4;
+            border-radius: 10px;
+            margin: 6px auto;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            width: 40%;
+            color: #000000;
+            display: flex;
+            align-items: center;
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            position: relative;
+            height: 80px;
+            padding: 0px;
+        }
+
+        .publication:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.5);
+        }
+
+        .publication img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 5px;
+            flex-shrink: 0;
+            margin-right: 15px;
+        }
+
+        .publication-content {
+            text-align: left;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .publication-content h2 {
+            font-size: 1rem;
+            margin: 5px 0;
+        }
+
+        .publication-content p {
+            font-size: 0.85rem;
+            font-weight: normal;
+            margin: 2px 0;
+        }
+
+        .view-publication {
+            background-color: rgba(243, 168, 71, 0.9);
+            color: #ffffff;
+            padding: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            min-width: 100px;
+            height: 100px;
+            text-align: center;
+            font-size: 0.9rem;
+            margin-left: auto;
+        }
+
+        .view-publication:hover {
+            background-color: rgba(229, 142, 38, 0.9);
+        }
+
+        .more-indicator {
+            font-size: 2rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 20px;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #FFD580;
+            width: 50%;
+            margin: 30px auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Publications</h1>
+
+    <div class="publication">
+        <img src="/assets/img/cndt.png" alt="Publication Image">
+        <div class="publication-content">
+            <h2>The Courant Nodal Domain Theorem</h2>
+            <p>Stanford University, August 27, 2021</p>
+        </div>
+        <a class="view-publication" href="https://surim.stanford.edu/sites/g/files/sbiybj26191/files/media/file/the_courant_nodal_domain_theorem_0.pdf" target="_blank">View →</a>
+    </div>
+
+    <div class="publication">
+        <img src="/assets/img/AHS.jpg" alt="Publication Image">
+        <div class="publication-content">
+            <h2>Reducing Uncertainty in Dynamic Stall Measurements</h2>
+            <p>Journal of the American Helicopter Society, 2021</p>
+        </div>
+        <a class="view-publication" href="https://www.ingentaconnect.com/content/ahs/jahs/2021/00000066/00000001/art00003" target="_blank">View →</a>
+    </div>
+
+    <div class="publication">
+        <img src="/assets/img/VFS.jpeg" alt="Publication Image">
+        <div class="publication-content">
+            <h2>Data-driven Optimal Basis Clustering</h2>
+            <p>Vertical Flight Society, 2019</p>
+        </div>
+        <a class="view-publication" href="https://vtol.org/content/ahs/jahs/2021/00000066/00000001/art00003" target="_blank">View →</a>
+    </div>
+
+    <div class="publication">
+        <img src="/assets/img/airfoil.png" alt="Publication Image">
+        <div class="publication-content">
+            <h2>Modal Analysis Based Clustering Technique</h2>
+            <p>American Institute of Aeronautics and Astronautics (AIAA), 2019</p>
+        </div>
+        <a class="view-publication" href="https://arc.aiaa.org/doi/10.2514/6.2019-1828" target="_blank">View →</a>
+    </div>
+
+    <div class="more-indicator">...</div>
+
+    <hr>
+</body>
+</html>

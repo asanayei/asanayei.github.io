@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Portfolio</title>
+  
+  <!-- Example Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" 
+    rel="stylesheet"
+  >
+  
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #fafafa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Portfolio Section */
+    .portfolio-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    .portfolio-section h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      font-weight: 600;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* Project Card */
+    .project-card {
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .project-image-link {
+      display: block;
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .project-info {
+      padding: 1rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-title {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .project-description {
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-links {
+      display: flex;
+      justify-content: flex-start;
+      gap: 1rem;
+    }
+
+    .project-button {
+      text-decoration: none;
+      color: #fff;
+      background-color: #007acc; /* Change to your brand color */
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      transition: background-color 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .project-button:hover {
+      background-color: #005fa3; /* Darken on hover */
+    }
+
+    /* Icon styling (optional) */
+    .icon {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      fill: currentColor; 
+    }
+
+    /* Published Papers Section */
+    .papers-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    .papers-section h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+
+    .papers-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 0;
+    }
+
+    .papers-list li {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 1rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .papers-list li:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .paper-link {
+      text-decoration: none;
+      color: #007acc;
+      font-weight: 600;
+    }
+
+    .paper-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Projects Section -->
+<section class="portfolio-section">
+<h1>Side Projects</h1>
+
+<div class="projects-grid">
+    
+    <!-- Project 1 -->
+    <div class="project-card">
+    <a href="/assets/img/nerf.png" target="_blank" class="project-image-link">
+        <img src="/assets/img/nerf.png" alt="Neural Radiance Fields">
+    </a>
+    <div class="project-info">
+        <div>
+        <h3 class="project-title">Neural Radiance Fields</h3>
+        <p class="project-description">
+            Exploring neural-based 3D reconstruction methods for an atom cloud 
+            used in novel atomic interferometer experiments.
+        </p>
+        </div>
+        <div class="project-links">
+        <a href="/assets/pdfs/Neural_Radiance_Fields.pdf" target="_blank" class="project-button">
+            <span class="icon">📄</span> PDF
+        </a>
+        <!-- GitHub link (provide actual link if available) -->
+        <a href="https://github.com/asanayei" target="_blank" class="project-button">
+            <span class="icon">🐙</span> GitHub
+        </a>
+        </div>
+    </div>
+    </div>
+    
+    <!-- Project 2 -->
+    <div class="project-card">
+    <a href="/assets/img/KA.gif" target="_blank" class="project-image-link">
+        <img src="/assets/img/KA.gif" alt="Koopman-based Dynamic Image Autoencoder">
+    </a>
+    <div class="project-info">
+        <div>
+        <h3 class="project-title">Koopman-based Dynamic Image Autoencoder</h3>
+        <p class="project-description">
+            A Koopman-based autoencoder approach for video data.
+        </p>
+        </div>
+        <div class="project-links">
+        <a href="/assets/pdfs/KA.pdf" target="_blank" class="project-button">
+            <span class="icon">📄</span> PDF
+        </a>
+        <!-- GitHub link (provide actual link if available) -->
+        <a href="https://github.com/asanayei" target="_blank" class="project-button">
+            <span class="icon">🐙</span> GitHub
+        </a>
+        </div>
+    </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="project-card">
+    <a href="/assets/img/TDA.gif" target="_blank" class="project-image-link">
+        <img src="/assets/img/TDA.gif" alt="Topological Data Analysis">
+    </a>
+    <div class="project-info">
+        <div>
+        <h3 class="project-title">Topological Data Analysis</h3>
+        <p class="project-description">
+            Applying persistent homology to cell-structure data.
+        </p>
+        </div>
+        <div class="project-links">
+        <a href="/assets/pdfs/TDA.pdf" target="_blank" class="project-button">
+            <span class="icon">📄</span> PDF
+        </a>
+        <!-- GitHub link (provide actual link if available) -->
+        <a href="https://github.com/asanayei" target="_blank" class="project-button">
+            <span class="icon">🐙</span> GitHub
+        </a>
+        </div>
+    </div>
+    </div>
+
+    <!-- Project 4 -->
+    <div class="project-card">
+    <a href="/assets/img/Cheeger.gif" target="_blank" class="project-image-link">
+        <img src="/assets/img/Cheeger.gif" alt="Spectral Graph Theory for Faster Clustering!">
+    </a>
+    <div class="project-info">
+        <div>
+        <h3 class="project-title">Spectral Graph Theory for Faster Clustering!</h3>
+        <p class="project-description">
+            Cheeger’s inequality, focusing on higher eigenvalues in spectral graph theory.
+        </p>
+        </div>
+        <div class="project-links">
+        <a href="/assets/pdfs/Cheeger.pdf" target="_blank" class="project-button">
+            <span class="icon">📄</span> PDF
+        </a>
+        <!-- GitHub link (provide actual link if available) -->
+        <a href="https://github.com/asanayei" target="_blank" class="project-button">
+            <span class="icon">🐙</span> GitHub
+        </a>
+        </div>
+    </div>
+    </div>
+
+    <!-- Project 5 -->
+    <div class="project-card">
+    <a href="/assets/img/Polya.gif" target="_blank" class="project-image-link">
+        <img src="/assets/img/Polya.gif" alt="Time-series Forecasting using Polya Models">
+    </a>
+    <div class="project-info">
+        <div>
+        <h3 class="project-title">Time-series Forecasting using Polya Models</h3>
+        <p class="project-description">
+            Polya Urn models for non-stationary time-series data.
+        </p>
+        </div>
+        <div class="project-links">
+        <a href="/assets/pdfs/Polya.pdf" target="_blank" class="project-button">
+            <span class="icon">📄</span> PDF
+        </a>
+        <!-- GitHub link (provide actual link if available) -->
+        <a href="https://github.com/asanayei" target="_blank" class="project-button">
+            <span class="icon">🐙</span> GitHub
+        </a>
+        </div>
+    </div>
+    </div>
+
+    <!-- Project 6 -->
+    <div class="project-card">
+    <a href="/assets/img/Fourier.gif" target="_blank" class="project-image-link">
+        <img src="/assets/img/Fourier.gif" alt="A Mathematically Rigorous Review of the Fourier Series">
+    </a>
+    <div class="project-info">
+        <div>
+        <h3 class="project-title">A Mathematically Rigorous Review of the Fourier Series</h3>
+        <p class="project-description">
+            Fourier series and their convergence properties.
+        </p>
+        </div>
+        <div class="project-links">
+        <a href="/assets/pdfs/Fourier.pdf" target="_blank" class="project-button">
+            <span class="icon">📄</span> PDF
+        </a>
+        <!-- GitHub link (provide actual link if available) -->
+        <a href="https://github.com/asanayei" target="_blank" class="project-button">
+            <span class="icon">🐙</span> GitHub
+        </a>
+        </div>
+    </div>
+    </div>
+
+</div>
+</section>
+
+</body>
+</html>
