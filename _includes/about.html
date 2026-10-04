@@ -19,11 +19,11 @@
         <a href="https://pytorch-geometric.readthedocs.io/" target="_blank" class="term-tech-link">
           <img src="/assets/img/pygeo_2.svg" alt="PyTorch Geometric" class="term-tech-logo" />
         </a>
-        <a href="https://spark.apache.org/" target="_blank" class="term-tech-link">
-          <img src="/assets/img/spark.svg" alt="Apache Spark" class="term-tech-logo" />
+        <a href="https://isocpp.org/" target="_blank" class="term-tech-link">
+          <img src="/assets/img/cplusplus.svg" alt="C++" class="term-tech-logo term-tech-glyph" />
         </a>
-        <a href="https://aws.amazon.com/" target="_blank" class="term-tech-link">
-          <img src="/assets/img/aws.svg" alt="AWS" class="term-tech-logo" />
+        <a href="https://www.rust-lang.org/" target="_blank" class="term-tech-link">
+          <img src="/assets/img/rust.svg" alt="Rust" class="term-tech-logo term-tech-glyph" />
         </a>
         <a href="https://www.nvidia.com/en-us/" target="_blank" class="term-tech-link">
           <img src="/assets/img/nvidia.svg" alt="NVIDIA" class="term-tech-logo" />
@@ -107,6 +107,13 @@
   filter: invert(1);
 }
 
+/* Single-glyph icons (C++, Rust) sit smaller to balance the wordmarks */
+.term-tech-glyph {
+  width: 72px;
+  height: 72px;
+  margin: 28px 0;
+}
+
 .term-tech-link:hover {
   transform: scale(1.2);
 }
@@ -131,11 +138,13 @@
 
 /* Experience logos grid */
 .term-exp-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(120px, 1fr));
-  gap: 2rem;
-  padding: 2rem 0;
-  margin: 2rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem 2.75rem;
+  padding: 1rem 0;
+  margin: 1rem 0 0.5rem;
 }
 
 .term-exp-link {
@@ -148,12 +157,30 @@
 
 .term-exp-logo {
   width: auto;
-  height: 80px;
-  transition: transform 0.6s ease;
+  height: 48px;
+  max-width: 170px;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.85;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+/* Dark-on-transparent marks are rendered white so they read on the terminal */
+.term-exp-logo.term-exp-mono {
+  filter: brightness(0) invert(1);
 }
 
 .term-exp-link:hover {
-  transform: scale(1.2);
+  transform: scale(1.08);
+}
+
+.term-exp-link:hover .term-exp-logo {
+  filter: none;
+  opacity: 1;
+}
+
+.term-exp-link:hover .term-exp-logo.term-exp-mono {
+  filter: brightness(0) invert(1);
 }
 
 /* Blinking cursor */
@@ -204,19 +231,20 @@ document.addEventListener('DOMContentLoaded', function() {
   // Content to type
   const lines = [
     { text: 'My Expertise', isHeading: true },
-    { text: 'My expertise is in computer vision, graph databases and neural networks, generative AI, and non-linear numerical simulations. I have training in both classical approaches and modern ML based approaches.' },
+    { text: 'I build perception and autonomy for robots that run on real hardware: 3D reconstruction and point clouds, multi-sensor fusion, and motion planning, grounded in simulation and careful evaluation.' },
     { text: 'Technical Skills', isHeading: true },
-    { text: '• Graph Neural Networks: Advanced architectures and theoretical foundations\n• Robotics & Computer Vision: Object detection, tracking, and motion control\n• Massive Databases & Data Mining: Large-scale data processing and analytics\n• GPU Optimization: CUDA programming and parallel computing \n• Computational Statistics: Causal inference, online hypothesis testing, POMDPs' },
+    { text: '• Perception & 3D: point clouds, 3D reconstruction, multi-sensor fusion\n• Autonomy: motion planning and robot autonomy on real hardware\n• Simulation & Evaluation: simulation-based testing of autonomy\n• Machine Learning: transformers, world models, graph neural networks\n• Systems: C++, Rust, CUDA, Python' },
     { text: 'Experience', isHeading: true },
     {
-      text: 'Experience at NASA, Los Alamos National Labs, and MSKCC has honed my skills in research and development.',
+      text: 'Industry, national labs, and research.',
       expLinks: [
-        { url: 'https://www.nasa.gov/', img: '/assets/img/nasa.svg' },
-        { url: 'https://www.lanl.gov/', img: '/assets/img/lanl.svg' },
-        { url: 'https://www.mskcc.org/', img: '/assets/img/mskcc.svg' },
-        { url: 'https://www.army.mil/', img: '/assets/img/army.svg' },
-        { url: 'https://www.finch.com/', img: '/assets/img/finch.jpeg' },
-        { url: 'https://stanfordhealthcare.org/', img: '/assets/img/stanford_hc.svg' },
+        { url: 'https://www.anduril.com/', img: '/assets/img/anduril.svg', alt: 'Anduril', mono: true, h: 26 },
+        { url: 'https://www.nasa.gov/', img: '/assets/img/nasa.svg', alt: 'NASA' },
+        { url: 'https://www.lanl.gov/', img: '/assets/img/lanl.svg', alt: 'Los Alamos National Laboratory', mono: true },
+        { url: 'https://www.mskcc.org/', img: '/assets/img/mskcc.svg', alt: 'Memorial Sloan Kettering', mono: true },
+        { url: 'https://www.army.mil/', img: '/assets/img/army.svg', alt: 'U.S. Army' },
+        { url: 'https://www.finch.com/', img: '/assets/img/finch.jpeg', alt: 'Finch' },
+        { url: 'https://stanfordhealthcare.org/', img: '/assets/img/stanford_hc.svg', alt: 'Stanford Medicine', mono: true },
       ]
     }
   ];
@@ -250,7 +278,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // Add LinkedIn button after all content
       const terminalBody = document.getElementById('terminalBody');
       const button = document.createElement('a');
-      button.href = "https://www.linkedin.com/in/armonsana/"; // Replace with actual LinkedIn URL
+      button.href = "https://www.linkedin.com/in/sanaluca/";
       button.className = "term-linkedin-btn";
       button.textContent = "connect --platform linkedin";
       terminalBody.appendChild(button);
@@ -272,16 +300,19 @@ document.addEventListener('DOMContentLoaded', function() {
         const expGrid = document.createElement('div');
         expGrid.classList.add('term-exp-grid');
 
-        lines[i].expLinks.forEach(({ url, img }) => {
+        lines[i].expLinks.forEach(({ url, img, alt, mono, h }) => {
           const link = document.createElement('a');
           link.href = url;
           link.target = "_blank";
+          link.rel = "noopener noreferrer";
           link.classList.add('term-exp-link');
 
           const imgEl = document.createElement('img');
           imgEl.src = img;
-          imgEl.alt = 'Experience Logo';
+          imgEl.alt = alt || 'Experience Logo';
           imgEl.classList.add('term-exp-logo');
+          if (mono) imgEl.classList.add('term-exp-mono');
+          if (h) imgEl.style.height = h + 'px';
 
           link.appendChild(imgEl);
           expGrid.appendChild(link);
