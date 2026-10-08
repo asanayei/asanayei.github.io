@@ -1,0 +1,85 @@
+<!-- Toyon: a berry sprig hanging into the header on a thread, drawn like the particle network
+     behind it. Sways in a light breeze; brush it with the mouse and it swings. -->
+<a class="toyon-dangle" href="https://asanayei.github.io/toyon/" target="_blank" aria-label="Toyon: computer vision in your browser">
+  <svg viewBox="0 0 160 320" aria-hidden="true">
+    <defs>
+      <radialGradient id="tdBerry" cx="35%" cy="30%" r="75%">
+        <stop offset="0" stop-color="#ff8a7a"/><stop offset=".35" stop-color="#e3261d"/><stop offset="1" stop-color="#7d0f0b"/>
+      </radialGradient>
+      <filter id="tdGlow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="3.5" result="b"/>
+        <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+    <g class="td-swing">
+      <path class="td-thread" d="M80 0 C 81 50, 79 100, 80 150"/>
+      <g class="td-sprig">
+        <!-- twigs and wireframe leaves, same green as the network lines -->
+        <g class="td-net">
+          <path d="M80 150 L62 176 L50 204 M80 150 L84 182 L78 214 M80 150 L102 172 L112 200 M62 176 L84 182 L102 172 M50 204 L66 210 L78 214 L96 206 L112 200 M66 210 L84 182"/>
+          <path class="td-leaf" d="M80 150 C 58 136, 34 138, 18 152 C 36 166, 60 164, 80 150 Z M80 150 L18 152 M60 144 L48 158 M42 143 L34 157"/>
+          <path class="td-leaf" d="M80 150 C 98 128, 124 120, 146 126 C 134 146, 108 156, 80 150 Z M80 150 L146 126 M104 136 L116 148 M124 128 L130 141"/>
+        </g>
+        <g class="td-berries" filter="url(#tdGlow)">
+          <circle cx="62" cy="176" r="9"/><circle cx="84" cy="182" r="10"/><circle cx="102" cy="172" r="8.5"/>
+          <circle cx="50" cy="204" r="8.5"/><circle cx="66" cy="210" r="9"/><circle cx="78" cy="214" r="9.5"/>
+          <circle cx="96" cy="206" r="9"/><circle cx="112" cy="200" r="8"/><circle cx="87" cy="234" r="8"/>
+        </g>
+        <g class="td-nodes">
+          <circle cx="80" cy="150" r="2.2"/><circle cx="18" cy="152" r="1.6"/><circle cx="146" cy="126" r="1.6"/>
+        </g>
+        <text class="td-label" x="80" y="272" text-anchor="middle">Toyon</text>
+        <text class="td-sub" x="80" y="290" text-anchor="middle">see it in 3D</text>
+      </g>
+    </g>
+  </svg>
+</a>
+<style>
+  .toyon-dangle { position: absolute; top: 0; right: 9%; z-index: 2; width: 190px; display: block; text-decoration: none; }
+  .toyon-dangle svg { width: 100%; height: auto; display: block; overflow: visible; }
+  .toyon-dangle .td-swing { transform-origin: 80px 0; }
+  .toyon-dangle .td-sprig { transform-origin: 80px 150px; }
+  .toyon-dangle .td-thread { fill: none; stroke: rgba(0, 255, 0, .35); stroke-width: 1; }
+  .toyon-dangle .td-net path { fill: none; stroke: rgba(0, 255, 0, .55); stroke-width: 1; stroke-linejoin: round; }
+  .toyon-dangle .td-net .td-leaf { fill: rgba(0, 255, 0, .05); }
+  .toyon-dangle .td-nodes circle { fill: #3f3; }
+  .toyon-dangle .td-berries circle { fill: url(#tdBerry); transition: opacity .4s; }
+  .toyon-dangle .td-label { font: bold 17px Arial, sans-serif; fill: grey; transition: fill .4s; }
+  .toyon-dangle .td-sub { font: 11px Arial, sans-serif; fill: grey; opacity: 0; transition: opacity .4s; }
+  .toyon-dangle:hover .td-label, .toyon-dangle:focus .td-label { fill: #fff; }
+  .toyon-dangle:hover .td-sub, .toyon-dangle:focus .td-sub { opacity: 1; }
+  .toyon-dangle:hover .td-net path { stroke: rgba(80, 255, 80, .9); }
+  @media (max-width: 700px) { .toyon-dangle { width: 110px; right: 4%; } }
+</style>
+<script>
+(function () {
+  var a = document.querySelector('.toyon-dangle');
+  if (!a) return;
+  var swing = a.querySelector('.td-swing'), sprig = a.querySelector('.td-sprig');
+  var still = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Two coupled pendulums: the whole thread, and the sprig hinged at its bottom (lags behind).
+  var th = 0.06, w = 0, ph = 0, pw = 0, last = 0, mx = null, my = 0, t0 = performance.now();
+  function frame(now) {
+    var dt = Math.min(0.033, (now - last) / 1000 || 0.016); last = now;
+    var t = (now - t0) / 1000;
+    var breeze = 0.35 * Math.sin(t * 0.7) + 0.2 * Math.sin(t * 1.9 + 1.3) + 0.12 * Math.sin(t * 2.9);
+    w += (-9.0 * Math.sin(th) - 0.9 * w + breeze) * dt;
+    th += w * dt;
+    pw += (-30 * (ph + 0.6 * th) - 3.0 * pw) * dt;      // sprig trails the thread's motion
+    ph += pw * dt;
+    swing.setAttribute('transform', 'rotate(' + (th * 57.3).toFixed(2) + ' 80 0)');
+    sprig.setAttribute('transform', 'rotate(' + (ph * 57.3).toFixed(2) + ' 80 150)');
+    requestAnimationFrame(frame);
+  }
+  // Brushing past it pushes it, in the direction the mouse was going.
+  document.addEventListener('pointermove', function (e) {
+    if (mx !== null) {
+      var r = a.getBoundingClientRect(), cx = r.left + r.width / 2, cy = r.top + r.height * 0.65;
+      var d = Math.hypot(e.clientX - cx, e.clientY - cy);
+      if (d < r.width * 0.75) w += Math.max(-0.35, Math.min(0.35, (e.clientX - mx) * 0.006));
+    }
+    mx = e.clientX; my = e.clientY;
+  }, { passive: true });
+  if (!still) requestAnimationFrame(frame);
+})();
+</script>
