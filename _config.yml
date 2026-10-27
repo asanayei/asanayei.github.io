@@ -1,20 +1,13 @@
 # Site settings
 title: Luca Sanayei
-description: Forsan et haec olim meminisse juvabit
+description: I like to train systems on the world.
 # baseurl: "/particle" # the subpath of your site, e.g. /blog
 url: "asanayei.github.io" # the base hostname & protocol for your site e.g. http://willianjusten.com.br
 logo: '/assets/img/logo.svg'
 # User settings
 username: Luca Sanayei
-user_description: Did someone say tacos?
 user_title: Robotics & Perception Engineer
-email: arsan@alumni.stanford.edu
-twitter_username: lorem_ipsum
 github_username:  asanayei
-gplus_username:  lorem_ipsum
 linkedin_username: sanaluca
-# Google-analytics
-google-analytics:
-  id: ""
 
 exclude: ['package.json', 'src' , 'node_modules']
