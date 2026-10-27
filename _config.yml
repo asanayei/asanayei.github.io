@@ -1,13 +1,22 @@
 # Site settings
 title: Luca Sanayei
 description: I like to train systems on the world.
-# baseurl: "/particle" # the subpath of your site, e.g. /blog
-url: "asanayei.github.io" # the base hostname & protocol for your site e.g. http://willianjusten.com.br
-logo: '/assets/img/logo.svg'
+url: "https://asanayei.github.io"
+lang: en_US
+author: Luca Sanayei
 # User settings
 username: Luca Sanayei
-user_title: Robotics & Perception Engineer
-github_username:  asanayei
+user_title: I like to train systems on the world.
+github_username: asanayei
 linkedin_username: sanaluca
 
-exclude: ['package.json', 'src' , 'node_modules']
+plugins:
+  - jekyll-seo-tag
+
+exclude: ['README.md', 'LICENSE.txt', 'Gemfile', 'Gemfile.lock', 'vendor', 'node_modules', '_preview']
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/img/nerf.jpg

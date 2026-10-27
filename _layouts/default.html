@@ -2,22 +2,24 @@
 <html lang="en">
   {% include head.html %}
   <body>
-      {% include header.html %}
-      <section id="education">
-        {% include education.html %}
-      </section>
-      <section id="about">
+    {% include header.html %}
+    <main class="wrap">
+      {% if page.url == "/" %}
+      <section id="about" class="section">
         {% include about.html %}
       </section>
-      <section id="publications">
-        {% include publications.html %}
-      </section>
-      <section id="portfolio">
+      <section id="projects" class="section">
         {% include portfolio.html %}
       </section>
-      <section id="projects">
-        {% include projects.html %}
+      <section id="publications" class="section">
+        {% include publications.html %}
       </section>
-        {{ content }}
-      {% include footer.html %}
+      <section id="education" class="section">
+        {% include education.html %}
+      </section>
+      {% endif %}
+      {{ content }}
+    </main>
+    {% include footer.html %}
   </body>
+</html>

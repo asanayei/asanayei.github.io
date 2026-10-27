@@ -14,7 +14,7 @@
     <g class="td-swing">
       <path class="td-thread" d="M80 0 C 81 50, 79 100, 80 150"/>
       <g class="td-sprig">
-        <!-- twigs and wireframe leaves, same green as the network lines -->
+        <!-- twigs and wireframe leaves, same colour as the network lines -->
         <g class="td-net">
           <path d="M80 150 L62 176 L50 204 M80 150 L84 182 L78 214 M80 150 L102 172 L112 200 M62 176 L84 182 L102 172 M50 204 L66 210 L78 214 L96 206 L112 200 M66 210 L84 182"/>
           <path class="td-leaf" d="M80 150 C 58 136, 34 138, 18 152 C 36 166, 60 164, 80 150 Z M80 150 L18 152 M60 144 L48 158 M42 143 L34 157"/>
@@ -35,21 +35,21 @@
   </svg>
 </a>
 <style>
-  .toyon-dangle { position: absolute; top: 0; right: 9%; z-index: 2; width: 190px; display: block; text-decoration: none; }
+  .toyon-dangle { position: absolute; top: 0; right: max(4%, calc(50% - 520px)); z-index: 2; width: 190px; display: block; text-decoration: none; }
   .toyon-dangle svg { width: 100%; height: auto; display: block; overflow: visible; }
   .toyon-dangle .td-swing { transform-origin: 80px 0; }
   .toyon-dangle .td-sprig { transform-origin: 80px 150px; }
-  .toyon-dangle .td-thread { fill: none; stroke: rgba(0, 255, 0, .35); stroke-width: 1; }
-  .toyon-dangle .td-net path { fill: none; stroke: rgba(0, 255, 0, .55); stroke-width: 1; stroke-linejoin: round; }
-  .toyon-dangle .td-net .td-leaf { fill: rgba(0, 255, 0, .05); }
-  .toyon-dangle .td-nodes circle { fill: #3f3; }
+  .toyon-dangle .td-thread { fill: none; stroke: rgba(125, 196, 255, .35); stroke-width: 1; }
+  .toyon-dangle .td-net path { fill: none; stroke: rgba(125, 196, 255, .55); stroke-width: 1; stroke-linejoin: round; }
+  .toyon-dangle .td-net .td-leaf { fill: rgba(125, 196, 255, .06); }
+  .toyon-dangle .td-nodes circle { fill: #7dc4ff; }
   .toyon-dangle .td-berries circle { fill: url(#tdBerry); transition: opacity .4s; }
-  .toyon-dangle .td-label { font: bold 17px Arial, sans-serif; fill: grey; transition: fill .4s; }
-  .toyon-dangle .td-sub { font: 11px Arial, sans-serif; fill: grey; opacity: 0; transition: opacity .4s; }
+  .toyon-dangle .td-label { font: 600 17px var(--sans); fill: #8b949e; transition: fill .4s; }
+  .toyon-dangle .td-sub { font: 11px var(--sans); fill: #8b949e; opacity: 0; transition: opacity .4s; }
   .toyon-dangle:hover .td-label, .toyon-dangle:focus .td-label { fill: #fff; }
   .toyon-dangle:hover .td-sub, .toyon-dangle:focus .td-sub { opacity: 1; }
-  .toyon-dangle:hover .td-net path { stroke: rgba(80, 255, 80, .9); }
-  @media (max-width: 700px) { .toyon-dangle { width: 110px; right: 4%; } }
+  .toyon-dangle:hover .td-net path { stroke: rgba(170, 215, 255, .95); }
+  @media (max-width: 760px) { .toyon-dangle { width: 84px; right: 6%; } }
 </style>
 <script>
 (function () {
